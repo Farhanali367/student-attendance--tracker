@@ -1,6 +1,9 @@
 import { useState } from "react";
 import "./App.css";
+import Dashboard from "./Dashboard.jsx";
+
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -12,8 +15,12 @@ function App() {
       return;
     }
 
-    alert("Login successful!");
+    setLoggedIn(true);
   };
+
+  if (loggedIn) {
+    return <Dashboard />;
+  }
 
   return (
     <div style={styles.page}>
@@ -21,12 +28,14 @@ function App() {
         <div style={styles.logo}>SA</div>
 
         <h1 style={styles.title}>Student Attendance</h1>
+
         <p style={styles.subtitle}>
           Track attendance. Stay organized.
         </p>
 
         <form onSubmit={handleLogin}>
           <label style={styles.label}>Email</label>
+
           <input
             type="email"
             placeholder="Enter your email"
@@ -36,6 +45,7 @@ function App() {
           />
 
           <label style={styles.label}>Password</label>
+
           <input
             type="password"
             placeholder="Enter your password"
