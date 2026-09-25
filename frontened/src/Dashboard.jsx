@@ -21,6 +21,7 @@ function Dashboard() {
 
   return (
     <div className="dashboard">
+
       <div className="dashboard-header">
         <div>
           <h1>Student Attendance Tracker</h1>
@@ -28,7 +29,7 @@ function Dashboard() {
         </div>
 
         <button
-          className="login-button"
+          className="attendance-btn"
           onClick={() => setShowAttendance(true)}
         >
           Open Attendance
@@ -36,6 +37,7 @@ function Dashboard() {
       </div>
 
       <div className="cards">
+
         <div className="card">
           <h3>Total Students</h3>
           <h2>120</h2>
@@ -43,13 +45,14 @@ function Dashboard() {
 
         <div className="card">
           <h3>Present Today</h3>
-          <h2 style={{ color: "#16a34a" }}>105</h2>
+          <h2 className="present">105</h2>
         </div>
 
         <div className="card">
           <h3>Absent Today</h3>
-          <h2 style={{ color: "#dc2626" }}>15</h2>
+          <h2 className="absent">15</h2>
         </div>
+
       </div>
 
       <div className="dashboard-card">
@@ -67,6 +70,7 @@ function Dashboard() {
           Manage Attendance
         </button>
       </div>
+
     </div>
   );
 }
