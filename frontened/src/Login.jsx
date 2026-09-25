@@ -19,46 +19,46 @@ function Login({ onLogin, onSignup }) {
   return (
     <div className="login-page">
       <div className="login-card">
-        <div className="login-icon">🎓</div>
 
-        <h1>Welcome back</h1>
+        <div className="login-icon">
+          👤
+        </div>
 
-        <p>Log in to track your attendance</p>
+        <h1>Welcome Back</h1>
+        <p>Login to Student Attendance Tracker</p>
 
-        <form onSubmit={handleLogin}>
-          <label>User ID</label>
+        <form className="login-form" onSubmit={handleLogin}>
 
-          <input
-            type="text"
-            placeholder="Enter your User ID"
-            value={userId}
-            onChange={(e) => setUserId(e.target.value)}
-          />
+          <div>
+            <label>User ID</label>
+            <input
+              type="text"
+              placeholder="Enter your User ID"
+              value={userId}
+              onChange={(e) => setUserId(e.target.value)}
+            />
+          </div>
 
-          <label>Password</label>
+          <div>
+            <label>Password</label>
+            <input
+              type="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
 
-          <input
-            type="password"
-            placeholder="Enter your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-
-          <button type="submit">
-            Log in
+          <button type="submit" className="login-button">
+            Login
           </button>
+
         </form>
 
-        <div className="signup-text">
-          Don't have an account?
-          <button
-            type="button"
-            onClick={onSignup}
-            className="signup-button"
-          >
-            Sign up
-          </button>
+        <div className="signup-link" onClick={onSignup}>
+          Don't have an account? Sign Up
         </div>
+
       </div>
     </div>
   );
