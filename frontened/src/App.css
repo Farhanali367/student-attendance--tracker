@@ -19,13 +19,94 @@ input {
   font-family: inherit;
 }
 
-/* Main App */
 .app {
   min-height: 100vh;
   width: 100%;
 }
 
-/* Dashboard */
+/* =========================
+   WELCOME PAGE
+========================= */
+
+.welcome-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+  padding: 20px;
+}
+
+.welcome-card {
+  width: 100%;
+  max-width: 520px;
+  background: white;
+  padding: 45px;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.welcome-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 20px;
+  border-radius: 18px;
+  background: #2563eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+}
+
+.welcome-card h1 {
+  font-size: 32px;
+  margin-bottom: 12px;
+  color: #111827;
+}
+
+.welcome-card p {
+  color: #6b7280;
+  margin-bottom: 28px;
+  font-size: 16px;
+}
+
+.welcome-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.login-btn,
+.signup-btn {
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.login-btn {
+  background: #2563eb;
+}
+
+.login-btn:hover {
+  background: #1d4ed8;
+}
+
+.signup-btn {
+  background: #16a34a;
+}
+
+.signup-btn:hover {
+  background: #15803d;
+}
+
+/* =========================
+   DASHBOARD
+========================= */
+
 .dashboard {
   min-height: 100vh;
   padding: 30px;
@@ -49,7 +130,8 @@ input {
   color: #6b7280;
 }
 
-/* Cards */
+/* Dashboard Cards */
+
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -75,7 +157,28 @@ input {
   color: #111827;
 }
 
-/* Attendance Button */
+/* Dashboard Main Card */
+
+.dashboard-card {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-card h2 {
+  margin-bottom: 10px;
+  color: #111827;
+}
+
+.dashboard-card p {
+  color: #6b7280;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* Buttons */
+
 .attendance-btn {
   padding: 12px 22px;
   border: none;
@@ -90,7 +193,6 @@ input {
   background: #1d4ed8;
 }
 
-/* Back Button */
 .backButton {
   margin: 20px;
   padding: 10px 18px;
@@ -101,7 +203,26 @@ input {
   font-weight: bold;
 }
 
-/* Attendance Page */
+.backButton:hover {
+  background: #1d4ed8;
+}
+
+/* Attendance Status */
+
+.present {
+  color: #16a34a !important;
+  font-weight: bold;
+}
+
+.absent {
+  color: #dc2626 !important;
+  font-weight: bold;
+}
+
+/* =========================
+   ATTENDANCE PAGE
+========================= */
+
 .attendance-container {
   padding: 30px;
 }
@@ -130,17 +251,10 @@ input {
   color: white;
 }
 
-.present {
-  color: #16a34a;
-  font-weight: bold;
-}
+/* =========================
+   RESPONSIVE
+========================= */
 
-.absent {
-  color: #dc2626;
-  font-weight: bold;
-}
-
-/* Responsive */
 @media (max-width: 768px) {
   .cards {
     grid-template-columns: 1fr;
@@ -158,5 +272,19 @@ input {
 
   .attendance-table {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .welcome-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .welcome-card {
+    padding: 30px 20px;
+  }
+
+  .welcome-card h1 {
+    font-size: 26px;
   }
 }
