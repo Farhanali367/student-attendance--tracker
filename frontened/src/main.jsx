@@ -6,7 +6,7 @@ import Login from "./Login.jsx";
 import Signup from "./Signup.jsx";
 import Dashboard from "./Dashboard.jsx";
 
-import "./index.css";
+import "./App.css";
 
 function App() {
   const [page, setPage] = useState("welcome");
