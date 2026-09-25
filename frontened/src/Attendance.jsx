@@ -10,7 +10,17 @@ function Attendance() {
 
   const [name, setName] = useState("");
   const [roll, setRoll] = useState("");
-
+  
+useEffect(() => {
+  getStudents()
+    .then((data) => {
+      setStudents(data);
+    })
+    .catch((error) => {
+      console.error("Error loading students:", error);
+    });
+}, []);
+  
   const toggleStatus = (id) => {
     setStudents((current) =>
       current.map((student) =>
