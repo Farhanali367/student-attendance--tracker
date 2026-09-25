@@ -1,9 +1,12 @@
 import { useState } from "react";
 import "./App.css";
 import Dashboard from "./Dashboard.jsx";
+import Signup from "./Signup.jsx";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [showSignup, setShowSignup] = useState(false);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -22,19 +25,33 @@ function App() {
     return <Dashboard />;
   }
 
+  if (showSignup) {
+    return (
+      <Signup
+        onBackToLogin={() => setShowSignup(false)}
+      />
+    );
+  }
+
   return (
     <div style={styles.page}>
       <div style={styles.card}>
+
         <div style={styles.logo}>SA</div>
 
-        <h1 style={styles.title}>Student Attendance</h1>
+        <h1 style={styles.title}>
+          Student Attendance
+        </h1>
 
         <p style={styles.subtitle}>
           Track attendance. Stay organized.
         </p>
 
         <form onSubmit={handleLogin}>
-          <label style={styles.label}>Email</label>
+
+          <label style={styles.label}>
+            Email
+          </label>
 
           <input
             type="email"
@@ -44,7 +61,9 @@ function App() {
             style={styles.input}
           />
 
-          <label style={styles.label}>Password</label>
+          <label style={styles.label}>
+            Password
+          </label>
 
           <input
             type="password"
@@ -54,14 +73,26 @@ function App() {
             style={styles.input}
           />
 
-          <button type="submit" style={styles.button}>
+          <button
+            type="submit"
+            style={styles.button}
+          >
             Login
           </button>
+
         </form>
 
         <p style={styles.signup}>
-          Don't have an account? <span>Sign up</span>
+          Don't have an account?{" "}
+
+          <span
+            onClick={() => setShowSignup(true)}
+            style={styles.link}
+          >
+            Sign up
+          </span>
         </p>
+
       </div>
     </div>
   );
@@ -103,7 +134,7 @@ const styles = {
 
   title: {
     textAlign: "center",
-    margin: "0",
+    margin: 0,
     color: "#111827",
   },
 
@@ -147,6 +178,12 @@ const styles = {
     textAlign: "center",
     color: "#6b7280",
     marginTop: "25px",
+  },
+
+  link: {
+    color: "#2563eb",
+    fontWeight: "bold",
+    cursor: "pointer",
   },
 };
 
