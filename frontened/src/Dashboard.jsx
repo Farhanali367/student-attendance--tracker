@@ -8,8 +8,8 @@ function Dashboard() {
     return (
       <div>
         <button
+          className="backButton"
           onClick={() => setShowAttendance(false)}
-          style={styles.backButton}
         >
           ← Back to Dashboard
         </button>
@@ -20,200 +20,55 @@ function Dashboard() {
   }
 
   return (
-    <div style={styles.page}>
-      <header style={styles.header}>
+    <div className="dashboard">
+      <div className="dashboard-header">
         <div>
-          <h2 style={styles.logo}>Student Attendance</h2>
-          <p style={styles.welcome}>Welcome back 👋</p>
+          <h1>Student Attendance Tracker</h1>
+          <p>Manage and monitor student attendance</p>
         </div>
 
-        <button style={styles.logout}>
-          Logout
+        <button
+          className="login-button"
+          onClick={() => setShowAttendance(true)}
+        >
+          Open Attendance
         </button>
-      </header>
+      </div>
 
-      <main style={styles.main}>
-        <div style={styles.stats}>
-
-          <div style={styles.card}>
-            <h3>Total Students</h3>
-            <strong>120</strong>
-          </div>
-
-          <div style={styles.card}>
-            <h3>Present Today</h3>
-            <strong>105</strong>
-          </div>
-
-          <div style={styles.card}>
-            <h3>Absent Today</h3>
-            <strong>15</strong>
-          </div>
-
-          <div style={styles.card}>
-            <h3>Attendance</h3>
-            <strong>87.5%</strong>
-          </div>
-
+      <div className="cards">
+        <div className="card">
+          <h3>Total Students</h3>
+          <h2>120</h2>
         </div>
 
-        <div style={styles.actionBox}>
-          <h2>Attendance Management</h2>
-
-          <p>
-            Mark and manage today's student attendance.
-          </p>
-
-          <button
-            onClick={() => setShowAttendance(true)}
-            style={styles.attendanceButton}
-          >
-            Open Attendance
-          </button>
+        <div className="card">
+          <h3>Present Today</h3>
+          <h2 style={{ color: "#16a34a" }}>105</h2>
         </div>
 
-        <section style={styles.tableCard}>
-          <h2>Today's Attendance</h2>
+        <div className="card">
+          <h3>Absent Today</h3>
+          <h2 style={{ color: "#dc2626" }}>15</h2>
+        </div>
+      </div>
 
-          <table style={styles.table}>
-            <thead>
-              <tr>
-                <th>Student</th>
-                <th>Roll No.</th>
-                <th>Status</th>
-              </tr>
-            </thead>
+      <div className="dashboard-card">
+        <h2>Attendance Overview</h2>
 
-            <tbody>
-              <tr>
-                <td>Rahul Sharma</td>
-                <td>101</td>
-                <td style={styles.present}>Present</td>
-              </tr>
+        <p>
+          Today's attendance is being tracked from the Attendance
+          Management section.
+        </p>
 
-              <tr>
-                <td>Arjun Patel</td>
-                <td>102</td>
-                <td style={styles.absent}>Absent</td>
-              </tr>
-
-              <tr>
-                <td>Farhan Ali</td>
-                <td>103</td>
-                <td style={styles.present}>Present</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-      </main>
+        <button
+          className="attendance-btn"
+          onClick={() => setShowAttendance(true)}
+        >
+          Manage Attendance
+        </button>
+      </div>
     </div>
   );
 }
-
-const styles = {
-  page: {
-    minHeight: "100vh",
-    background: "#f8fafc",
-    fontFamily: "Arial, sans-serif",
-  },
-
-  header: {
-    background: "#ffffff",
-    padding: "20px 6%",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    borderBottom: "1px solid #e5e7eb",
-  },
-
-  logo: {
-    margin: 0,
-    color: "#2563eb",
-  },
-
-  welcome: {
-    margin: "5px 0 0",
-    color: "#64748b",
-  },
-
-  logout: {
-    border: "none",
-    background: "#ef4444",
-    color: "white",
-    padding: "10px 18px",
-    borderRadius: "8px",
-    cursor: "pointer",
-  },
-
-  main: {
-    padding: "35px 6%",
-  },
-
-  stats: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-    gap: "20px",
-  },
-
-  card: {
-    background: "#ffffff",
-    padding: "25px",
-    borderRadius: "15px",
-    boxShadow: "0 5px 20px rgba(0,0,0,0.06)",
-  },
-
-  actionBox: {
-    background: "#ffffff",
-    padding: "25px",
-    marginTop: "30px",
-    borderRadius: "15px",
-    boxShadow: "0 5px 20px rgba(0,0,0,0.06)",
-  },
-
-  attendanceButton: {
-    background: "#2563eb",
-    color: "#ffffff",
-    border: "none",
-    padding: "12px 20px",
-    borderRadius: "9px",
-    cursor: "pointer",
-    fontWeight: "bold",
-  },
-
-  tableCard: {
-    background: "#ffffff",
-    padding: "25px",
-    marginTop: "30px",
-    borderRadius: "15px",
-    boxShadow: "0 5px 20px rgba(0,0,0,0.06)",
-    overflowX: "auto",
-  },
-
-  table: {
-    width: "100%",
-    borderCollapse: "collapse",
-    marginTop: "20px",
-  },
-
-  present: {
-    color: "#16a34a",
-    fontWeight: "bold",
-  },
-
-  absent: {
-    color: "#dc2626",
-    fontWeight: "bold",
-  },
-
-  backButton: {
-    margin: "20px",
-    padding: "10px 18px",
-    border: "none",
-    borderRadius: "8px",
-    background: "#334155",
-    color: "#ffffff",
-    cursor: "pointer",
-  },
-};
 
 export default Dashboard;
