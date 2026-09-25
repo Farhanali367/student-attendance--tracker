@@ -1,4 +1,24 @@
+import { useState } from "react";
+import Attendance from "./Attendance.jsx";
+
 function Dashboard() {
+  const [showAttendance, setShowAttendance] = useState(false);
+
+  if (showAttendance) {
+    return (
+      <div>
+        <button
+          onClick={() => setShowAttendance(false)}
+          style={styles.backButton}
+        >
+          ← Back to Dashboard
+        </button>
+
+        <Attendance />
+      </div>
+    );
+  }
+
   return (
     <div style={styles.page}>
       <header style={styles.header}>
@@ -7,11 +27,14 @@ function Dashboard() {
           <p style={styles.welcome}>Welcome back 👋</p>
         </div>
 
-        <button style={styles.logout}>Logout</button>
+        <button style={styles.logout}>
+          Logout
+        </button>
       </header>
 
       <main style={styles.main}>
         <div style={styles.stats}>
+
           <div style={styles.card}>
             <h3>Total Students</h3>
             <strong>120</strong>
@@ -31,6 +54,22 @@ function Dashboard() {
             <h3>Attendance</h3>
             <strong>87.5%</strong>
           </div>
+
+        </div>
+
+        <div style={styles.actionBox}>
+          <h2>Attendance Management</h2>
+
+          <p>
+            Mark and manage today's student attendance.
+          </p>
+
+          <button
+            onClick={() => setShowAttendance(true)}
+            style={styles.attendanceButton}
+          >
+            Open Attendance
+          </button>
         </div>
 
         <section style={styles.tableCard}>
@@ -123,6 +162,24 @@ const styles = {
     boxShadow: "0 5px 20px rgba(0,0,0,0.06)",
   },
 
+  actionBox: {
+    background: "#ffffff",
+    padding: "25px",
+    marginTop: "30px",
+    borderRadius: "15px",
+    boxShadow: "0 5px 20px rgba(0,0,0,0.06)",
+  },
+
+  attendanceButton: {
+    background: "#2563eb",
+    color: "#ffffff",
+    border: "none",
+    padding: "12px 20px",
+    borderRadius: "9px",
+    cursor: "pointer",
+    fontWeight: "bold",
+  },
+
   tableCard: {
     background: "#ffffff",
     padding: "25px",
@@ -146,6 +203,16 @@ const styles = {
   absent: {
     color: "#dc2626",
     fontWeight: "bold",
+  },
+
+  backButton: {
+    margin: "20px",
+    padding: "10px 18px",
+    border: "none",
+    borderRadius: "8px",
+    background: "#334155",
+    color: "#ffffff",
+    cursor: "pointer",
   },
 };
 
