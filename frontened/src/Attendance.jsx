@@ -7,6 +7,9 @@ function Attendance() {
     { id: 3, name: "Farhan Ali", roll: "103", status: "Present" },
   ]);
 
+  const [name, setName] = useState("");
+  const [roll, setRoll] = useState("");
+
   const toggleStatus = (id) => {
     setStudents((current) =>
       current.map((student) =>
@@ -23,13 +26,58 @@ function Attendance() {
     );
   };
 
+  const addStudent = (e) => {
+    e.preventDefault();
+
+    if (!name || !roll) {
+      alert("Enter student name and roll number");
+      return;
+    }
+
+    const newStudent = {
+      id: Date.now(),
+      name,
+      roll,
+      status: "Present",
+    };
+
+    setStudents([...students, newStudent]);
+
+    setName("");
+    setRoll("");
+  };
+
   return (
     <div style={styles.page}>
       <div style={styles.container}>
-        <h1>Attendance</h1>
+
+        <h1>Attendance Management</h1>
+
         <p style={styles.subtitle}>
-          Mark today's student attendance
+          Manage today's student attendance
         </p>
+
+        <form onSubmit={addStudent} style={styles.form}>
+          <input
+            type="text"
+            placeholder="Student name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            style={styles.input}
+          />
+
+          <input
+            type="text"
+            placeholder="Roll number"
+            value={roll}
+            onChange={(e) => setRoll(e.target.value)}
+            style={styles.input}
+          />
+
+          <button type="submit" style={styles.addButton}>
+            + Add Student
+          </button>
+        </form>
 
         <div style={styles.tableBox}>
           <table style={styles.table}>
@@ -65,7 +113,8 @@ function Attendance() {
                       onClick={() => toggleStatus(student.id)}
                       style={styles.button}
                     >
-                      Mark {student.status === "Present"
+                      Mark{" "}
+                      {student.status === "Present"
                         ? "Absent"
                         : "Present"}
                     </button>
@@ -75,6 +124,7 @@ function Attendance() {
             </tbody>
           </table>
         </div>
+
       </div>
     </div>
   );
@@ -97,12 +147,39 @@ const styles = {
     color: "#64748b",
   },
 
+  form: {
+    display: "flex",
+    gap: "12px",
+    flexWrap: "wrap",
+    background: "#ffffff",
+    padding: "20px",
+    borderRadius: "15px",
+    marginTop: "25px",
+  },
+
+  input: {
+    flex: "1",
+    minWidth: "200px",
+    padding: "12px",
+    border: "1px solid #d1d5db",
+    borderRadius: "8px",
+  },
+
+  addButton: {
+    background: "#16a34a",
+    color: "#ffffff",
+    border: "none",
+    padding: "12px 18px",
+    borderRadius: "8px",
+    cursor: "pointer",
+    fontWeight: "bold",
+  },
+
   tableBox: {
     background: "#ffffff",
     padding: "25px",
     borderRadius: "15px",
     marginTop: "25px",
-    boxShadow: "0 5px 20px rgba(0,0,0,0.06)",
     overflowX: "auto",
   },
 
