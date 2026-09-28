@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import {
   getStudents,
   addStudent as createStudent,
-} from "./services/api";
+} from "./service/api";
 
 function Attendance() {
   const [students, setStudents] = useState([]);
