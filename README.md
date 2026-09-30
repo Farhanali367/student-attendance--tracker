@@ -105,6 +105,6 @@ The backend provides APIs for:
 
 Completed basic attendance tracking functionality with frontend and FastAPI backend.
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 
 **Farhanali367**
